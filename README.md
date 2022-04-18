@@ -1,1 +1,3 @@
-# openhab-jsrule-examples
+# openHAB JSRule examples
+
+Collection of useful openHAB JSRule examples.
