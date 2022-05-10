@@ -24,8 +24,8 @@ rules.JSRule({
             items.getItem("IsNight").sendCommand("OFF");
 
             let sun_action = actions.get("astro", "astro:sun:local");
-            let sun_rise_tomorrow = sun_action.getEventTime("SUN_RISE", tomorrow, "START");
-            items.getItem("NextSunRise").sendCommand(sun_rise_tomorrow.toLocalDateTime().toString());
+            let sun_rise_tomorrow = new Date(sun_action.getEventTime("SUN_RISE", tomorrow, "START"));
+            items.getItem("NextSunRise").sendCommand(sun_rise_tomorrow.toLocaleDateString());
 
         } else if (data.triggerType === "ChannelEventTrigger" && data.itemName === "astro:sun:local:set#event") {
 
@@ -33,8 +33,8 @@ rules.JSRule({
             items.getItem("IsNight").sendCommand("ON");
 
             let sun_action = actions.get("astro", "astro:sun:local");
-            let sun_set_tomorrow = sun_action.getEventTime("SUN_SET", tomorrow, "START");
-            items.getItem("NextSunSet").sendCommand(sun_set_tomorrow.toLocalDateTime().toString());
+            let sun_set_tomorrow = new Date(sun_action.getEventTime("SUN_SET", tomorrow, "START"));
+            items.getItem("NextSunSet").sendCommand(sun_set_tomorrow.toLocaleDateString());
 
         }
 
